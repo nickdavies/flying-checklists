@@ -1,0 +1,401 @@
+\documentclass[landscape,12pt]{article}
+\usepackage[a4paper,left=5mm,right=5mm,top=5mm,bottom=5mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{multicol}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagenumbering{gobble}
+
+\newcommand{\checklistRaw}[2]{\fbox{\parbox[t]{#1}{\vspace{0pt}#2}}}
+\newcommand{\clheadingRaw}[2]{\textbf{#1 #2}\vspace{-2mm}}
+\newcommand{\clheading}[1]{\clheadingRaw{\large}{#1}}
+\newcommand{\clheadingLarge}[1]{\clheadingRaw{\Large}{#1}}
+
+% Customise bullet points
+ \renewcommand{\labelitemiii}{\labelitemi}
+\newenvironment{clitemize}
+{\begin{itemize}
+    \setlength{\itemsep}{0.2em}
+    \setlength{\parskip}{0em}
+    \setlength{\parsep}{0em}
+    
+}
+{\end{itemize}}
+
+\newcommand{\flightplan}{
+    \clheading{Flight Planning:}
+    \begin{clitemize}
+        \item Route, Departure, Destination, Alternates.
+        \item Any other airports being visited.
+        \item TFRs
+        \item Weather
+        \begin{clitemize}
+            \item Adverse Conditions:
+            \begin{clitemize}
+                \item SIGMETS
+                \item AIRMETS
+            \end{clitemize}
+            \item Synopsis:
+            \begin{clitemize}
+                \item Surface Analysis Chart
+                \item Weather Depiction Chart
+                \item Constant Pressure Chart
+            \end{clitemize}
+            \item Forecast:
+            \begin{clitemize}
+                \item Area Forecast
+                \item Low Level SIGWX Prog
+                \item Winds Aloft
+            \end{clitemize}
+            \item METARS + TAFS:
+            \begin{clitemize}
+                \item Departure
+                \item Arrival
+                \item Alternatives
+                \item Any other
+            \end{clitemize}
+            \item NOTAMS:
+            \begin{clitemize}
+                \item Departure
+                \item Arrival
+                \item Alternatives
+                \item Any other
+            \end{clitemize}
+            \item PIREPS
+            \item RADRAR
+        \end{clitemize}
+        \item Weight and Balance (if possible)
+    \end{clitemize}
+}
+
+\newcommand{\flightbag}{
+    \clheading{Flight Bag:}
+    \begin{clitemize}
+        \item Clipboard
+        \item Blank paper 3+ sheets
+        \item SF TAC
+        \item SF Sectional
+        \item Any additional maps
+        \item Logbook
+        \item 2+ Pens
+        \item Sunglasses
+        \item E6b
+        \item Plotter
+        \item AFD (at least A/D):
+        \begin{clitemize}
+            \item Departure
+            \item Arrival
+            \item Alternates
+        \end{clitemize}
+        \item Information Manual
+        \item Pilot's Certificate
+        \item Medical
+        \item Flight Planning Bundle
+        \item This Checklist
+        \item Flight Checklist
+    \end{clitemize}
+}
+
+\newcommand{\preflightCockpit}{
+    \clheading{Cockpit:}
+    \begin{clitemize}
+        \item Windshield Cover - REMOVE
+        \item Pitot Cover - REMOVED
+        \item HOBS + TACH - RECORD
+        \item Keys - ON DASH
+        \item Documents:
+        \begin{clitemize}
+            \item Airworthiness - CHECK
+            \item Registration - CHECK
+            \item POH - CHECK
+            \item Weights + Balance - CHECK
+        \end{clitemize}
+        \item Control Lock - REMOVED
+        \item Brake Pedals + Rudder - CHECK
+        \item Fuel Selector - BOTH
+        \item Fuel Cutoff - IN
+        \item Trim extremes - TAKEOFF
+        \item Flaps - FULL
+        \item Alternate static port - CHECK
+        \item Lights - ALL ON
+        \item Master - ON
+        \item Lights - CHECK
+        \item Fuel - CHECK
+        \item Annunciators - CHECK
+        \item Avionics cooling fan - CHECK
+        \item Master - OFF
+        \item Lights - OFF
+        \item Pitot Head - CHECK IF COLD
+        \item Passenger door - OPEN    
+    \end{clitemize}
+}
+
+\newcommand{\preflightEmpennage}{
+    \clheading{Empennage:}
+    \begin{clitemize}
+    \item Autopilot Static Port - CLEAR
+        \item Preflight equipment - ON GROUND
+        \item Elevator left counterweight - CHECK
+        \item 3 Elevator Joints - CHECK
+        \item Elevator cables - CHECK
+        \item Rudder Cable Left - CHECK
+        \item Tie-down - DISCONNECT
+        \item Rudder Trim - CHECK
+        \item 3 Rudder Joints - CHECK
+        \item Rudder counterweight - CHECK
+        \item VOR antenna - CHECK
+        \item Elevator Trim arm - CHECK
+        \item Rudder Cable Right - CHECK
+        \item 2 Elevator Joints - CHECK
+        \item Elevator counterweight - CHECK
+    \end{clitemize}
+}
+
+\newcommand{\preflightRightWing}{
+    \clheading{Right Wing:}
+    \begin{clitemize}
+        \item Wheel strut - CHECK
+        \item Brake - CHECK
+        \item Tire - CHECK
+        \item Flap rails - CHECK
+        \item Flap rod - CHECK
+        \item Aileron bolts - CHECK
+        \item Aileron rod - CHECK
+        \item Aileron weights(3) - CHECK
+        \item Wing Leading edge - CHECK
+        \item Tie-down - DISCONNECT
+        \item Wing strut - CHECK
+        \item 5 Fuel test points - DRAIN
+        \item Fuel - CHECK CLEAN
+        \item Fuel - QUANTITY
+        \item Fuel - FILTER CAP
+    \end{clitemize}
+}
+
+\newcommand{\preflightNose}{
+    \clheading{Nose:}
+    \begin{clitemize}
+        \item Oil - 6+ QUARTS
+        \item Engine bay - CLEAR
+        \item 3 Fuel test points - DRAIN
+        \item Wheel - CHECK
+        \item Wheel strut - 3+ FINGERS
+        \item Prop - SMOOTH
+        \item Spinner - SMOOTH
+        \item Alternator Belt - CHECK
+        \item Cooling inlet - CLEAR
+        \item Air Filter - CLEAR
+        \item Static Port - CLEAR
+    \end{clitemize}
+}
+
+\newcommand{\preflightLeftWing}{
+    \clheading{Left Wing:}
+    \begin{clitemize}
+        \item 5 Fuel test points - DRAIN
+        \item Fuel - CHECK CLEAN
+        \item Fuel - QUANTITY
+        \item Fuel - FILTER CAP
+        \item Wing strut - CHECK
+        \item Pitot tube - CLEAR
+        \item Tie-down - DISCONNECT
+        \item Fuel Tank Vent - CLEAR
+        \item Stall Warning - OPERATIONAL
+        \item Wing Leading edge - CHECK
+        \item Aileron bolts - CHECK
+        \item Aileron rod - CHECK
+        \item Aileron weights(3) - CHECK
+        \item Flap rails - CHECK
+        \item Flap rod - CHECK
+        \item Wheel strut - CHECK
+        \item Brake - CHECK
+        \item Tire - CHECK
+    \end{clitemize}
+}
+
+\newcommand{\groundFinalPreflightChecks}{
+    \clheading{Final Preflight Checks:}
+    \begin{clitemize}
+        \item Seat height - LOWEST
+        \item Preflight equipment - STORED
+        \item Baggage door - LOCKED
+        \item Flight Equipment ready:
+        \begin{clitemize}
+            \item Sunglasses
+            \item Headset
+            \item Clipboard
+            \item E6B + Plotter
+            \item Spare Pen
+            \item Airport Diagrams
+            \item Maps Folded Correctly
+            \item In-Flight Checklist Ready
+        \end{clitemize}
+        \item WALK AROUND
+    \end{clitemize}
+}
+
+\newcommand{\groundEngineStart}{
+    \clheading{Engine Start:}
+    \begin{clitemize}
+        \item Seatbelts/Security - CHECK
+        \item Mags - OFF
+        \item Master - OFF
+        \item Beacon - ON
+        \item Avionics - OFF
+        \item Autopilot - OFF
+        \item Brakes - SET
+        \item Mixture - FULL LEAN
+        \item Throttle - 1/4"
+        \item CLEAR PROP
+        \item START:
+        \begin{clitemize}
+            \item Master - ON
+            \item Fuel Pump - ON + FULL RICH
+            \item Fuel Pump - OFF + FULL LEAN
+            \item Mags - START
+            \item Mixture - FULL RICH
+        \end{clitemize}
+    \end{clitemize}
+}
+
+\newcommand{\groundPretaxi}{
+    \clheading{Pre-taxi:}
+    \begin{clitemize}
+        \item Avionics - ON
+        \item Mixture - LEAN
+        \item Oil Pressure/Temp - CHECK
+        \item Ammeter - POSITIVE
+        \item Flaps - UP
+        \item Strobes - ON
+        \item ATIS
+        \item Altimeter set
+        \item H.I. to compass
+        \item XPDR - VFR + ALT
+        \item Engine start time - NOTE
+        \item GPS - ADVANCE
+        \item NOTE WIND FOR TAXI
+        \item Breaks - TEST
+    \end{clitemize}
+}
+
+\newcommand{\groundRunup}{
+    \clheading{RUNUP (CIGARS):}
+    \begin{clitemize}
+        \item Controls - FREE + CORRECT
+        \item Instruments - CHECK
+        \item Gas - BOTH + QUANTITY
+        \item Annunciator - CHECK
+        \item Autopilot - CHECK
+        \item Attitude - TRIM TAKEOFF
+        \item Radios - TOWER + XPDR
+        \item Runup:
+        \begin{clitemize}
+            \item Mixture - FULL RICH
+            \item RPM - 1800
+            \item Mags L/R - TEST
+            \item Oil Temp/Pressure - CHECK
+            \item Amps/Volts - CHECK
+        \end{clitemize}
+        \item Seatbelts + Security - CHECK
+    \end{clitemize}
+}
+
+\newcommand{\groundPretakeoffBriefing}{
+    \clheading{Pre-takeoff Briefing:}
+    \begin{clitemize}
+        \item Runway - CONFIRM
+        \item Wind - CHECK
+        \item Departure - BRIEF
+        \item Engine Failure - BRIEF
+        \item 1000 AGL in MSL - NOTE
+        \item Abort Speed/Point - NOTE (40KT)
+    \end{clitemize}
+}
+
+\newcommand{\groundAfterLanding}{
+    \clheading{After Landing:}
+    \begin{clitemize}
+        \item Flaps - UP
+        \item Mixture - LEAN
+        \item Lights - SET
+        \item NOTE WIND FOR TAXI
+    \end{clitemize}
+}
+
+\newcommand{\groundSecuring}{
+    \clheading{Securing:}
+    \begin{clitemize}
+        \item TODO
+    \end{clitemize}
+}
+
+\newcommand{\airFlowCheck}{
+    \clheadingLarge{Flow Check:}
+    {\Large
+        \begin{clitemize}
+            \item H.I to compass - SET
+            \item Oil - TEMP + PRESSURE
+            \item AMPS/VOLTS - CHECK
+            \item Lights - CHECK
+            \item Power - CHECK
+            \item Mixture - CHECK
+            \item NEXT CHECKLIST - NOTE
+            \item Best field - NOTE
+        \end{clitemize}
+    }
+}
+
+\newcommand{\airBeforeLanding}{
+    \clheading{Before Landing:}
+    \begin{clitemize}
+        \item FLOW CHECK
+        \item ATIS - CHECK
+        \item Altimeter - SET
+        \item Landing Light - ON
+        \item Fuel - BOTH
+        \item Seatbelts - CHECK
+        \item HI bug - SET RUNWAY
+        \item GUMPS - REMEMBER
+    \end{clitemize}
+}
+
+\newcommand{\checklist}[1]{MUST REDEFINE!}
+\begin{document}
+    \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
+    \section*{Pre-Flight Checklist:}
+    \begin{multicols}{2}
+        \checklist{\flightplan}
+        \checklist{\flightbag}
+    \end{multicols}
+    
+    \newpage
+    \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
+    \begin{multicols}{3}
+        \checklist{\preflightCockpit}
+        \checklist{\preflightEmpennage}
+        \checklist{\preflightRightWing}
+        \checklist{\preflightNose}
+        \checklist{\preflightLeftWing}
+    \end{multicols}
+    
+    \newpage
+    \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
+    \begin{multicols}{3}
+        \checklist{\groundFinalPreflightChecks}
+        \par
+        \checklist{\groundEngineStart}
+        \checklist{\groundPretaxi}
+        \checklist{\groundRunup}
+        \checklist{\groundPretakeoffBriefing}
+        \checklist{\groundSecuring}
+    \end{multicols}
+    
+    \newpage
+    \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
+    \begin{multicols}{3}
+        \checklist{\airFlowCheck}
+        \checklist{\airBeforeLanding}
+        \checklist{\groundAfterLanding}
+    \end{multicols}
+\end{document}
