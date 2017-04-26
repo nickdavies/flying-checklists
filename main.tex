@@ -19,7 +19,6 @@
     \setlength{\itemsep}{0.2em}
     \setlength{\parskip}{0em}
     \setlength{\parsep}{0em}
-    
 }
 {\end{itemize}}
 
@@ -127,8 +126,8 @@
         \item Ammeter Discharge - NOTE
         \item Master - OFF
         \item Lights - OFF
-        \item Pitot Heat - CHECK IF COLD
-        \item Passenger door - OPEN    
+        \item Pitot Heat - CHECK
+        \item Passenger door - OPEN
     \end{clitemize}
 }
 
@@ -138,7 +137,7 @@
     \item Autopilot Static Port - CLEAR
         \item Preflight equipment - ON GROUND
         \item Elevator left counterweight - CHECK
-        \item 3 Elevator Joints - CHECK
+        \item 2 Elevator Joints - CHECK
         \item Elevator cables - CHECK
         \item Rudder Cable Left - CHECK
         \item Tie-down - DISCONNECT
@@ -221,18 +220,22 @@
         \item Seat height - LOWEST
         \item Preflight equipment - STORED
         \item Baggage door - LOCKED
-        \item Flight Equipment ready:
-        \begin{clitemize}
-            \item Sunglasses
-            \item Headset
-            \item Clipboard
-            \item E6B + Plotter
-            \item Spare Pen
-            \item Airport Diagrams
-            \item Maps Folded Correctly
-            \item In-Flight Checklist Ready
-        \end{clitemize}
+        \item Flight Equipment - READY
         \item WALK AROUND
+    \end{clitemize}
+}
+
+\newcommand{\groundPassengerBrief}{
+    \clheading{Passenger Brief:}
+    \begin{clitemize}
+        \item PIC/Responsibilities
+        \item Mission
+        \item Seatbelt
+        \item Air vent/sick
+        \item Fire Extinguisher
+        \item Exits and equipment
+        \item Traffic/Talking
+        \item Questions?
     \end{clitemize}
 }
 
@@ -244,19 +247,11 @@
         \item Master - OFF
         \item Beacon - ON
         \item Avionics - OFF
-        \item Autopilot - OFF
         \item Brakes - SET
         \item Mixture - FULL LEAN
         \item Throttle - 1/4"
         \item CLEAR PROP
-        \item START:
-        \begin{clitemize}
-            \item Master - ON
-            \item Fuel Pump - ON + FULL RICH
-            \item Fuel Pump - OFF + FULL LEAN
-            \item Mags - START
-            \item Mixture - FULL RICH
-        \end{clitemize}
+        \item Engine - START
     \end{clitemize}
 }
 
@@ -273,9 +268,9 @@
         \item Altimeter set
         \item H.I. to compass
         \item XPDR - VFR + ALT
-        \item Engine start time - NOTE
         \item GPS - ADVANCE
         \item NOTE WIND FOR TAXI
+        \item Airport Diagram
         \item Breaks - TEST
     \end{clitemize}
 }
@@ -322,12 +317,22 @@
         \item Mixture - LEAN
         \item Lights - SET
         \item NOTE WIND FOR TAXI
+        \item Airport Diagram
     \end{clitemize}
 }
 
 \newcommand{\groundSecuring}{
     \clheading{Securing:}
     \begin{clitemize}
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
         \item TODO
     \end{clitemize}
 }
@@ -358,7 +363,51 @@
         \item Fuel - BOTH
         \item Seatbelts - CHECK
         \item HI bug - SET RUNWAY
+        \item Airport Information
         \item GUMPS - REMEMBER
+    \end{clitemize}
+}
+
+\newcommand{\airEmergencyEngineFailure}{
+    \clheading{Engine Failure:}
+    \begin{clitemize}
+        \item Airspeed - 68 Kt
+        \item Fuel Pump - ON
+        \item Throttle - CYCLE - FULL
+        \item Mixture - CYCLE - FULL
+        \item Mags - CYCLE - BOTH
+        \item Fuel Tanks - CYCLE - BOTH
+        \item Fuel Cutoff - CYCLE - IN
+    \end{clitemize}
+    \clheading{If engine doesn't start:}
+    \begin{clitemize}
+        \item Fuel Cutoff - OUT
+        \item Mixture - IDLE
+        \item Throttle - IDLE
+        \item Mags - OFF
+        \item Doors - UNLATCHED
+    \end{clitemize}
+}
+
+\newcommand{\airEmergencyEngineFire}{
+    \clheading{Engine Fire:}
+    \begin{clitemize}
+        \item Mixture - FULL LEAN
+        \item Fuel Cutoff - OUT
+        \item Fuel Pump - OFF
+        \item Master - OFF
+        \item FORCED LANDING
+    \end{clitemize}
+}
+
+\newcommand{\airEmergencyCabinFire}{
+    \clheading{Cabin/Electrical Fire:}
+    \begin{clitemize}
+        \item Master - OFF
+        \item Cabin Vents - CLOSED
+        \item Fire Extinguisher - ACTIVATE
+        \item Cabin Vents - OPEN
+        \item Land - ASAP
     \end{clitemize}
 }
 
@@ -370,7 +419,7 @@
         \checklist{\flightplan}
         \checklist{\flightbag}
     \end{multicols}
-    
+
     \newpage
     \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
     \begin{multicols}{3}
@@ -380,24 +429,38 @@
         \checklist{\preflightNose}
         \checklist{\preflightLeftWing}
     \end{multicols}
-    
+
     \newpage
     \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
     \begin{multicols}{3}
         \checklist{\groundFinalPreflightChecks}
         \par
+        \checklist{\groundPassengerBrief}
+        \par
         \checklist{\groundEngineStart}
+        \vfill\columnbreak
         \checklist{\groundPretaxi}
+        \par
         \checklist{\groundRunup}
+        \vfill\columnbreak
         \checklist{\groundPretakeoffBriefing}
-        \checklist{\groundSecuring}
+        \par
+        %\checklist{\groundSecuring}
     \end{multicols}
-    
+
     \newpage
     \renewcommand{\checklist}[1]{\checklistRaw{0.3\textwidth}{#1}}
-    \begin{multicols}{3}
+    \begin{multicols}{2}
         \checklist{\airFlowCheck}
+        \par
         \checklist{\airBeforeLanding}
+        \par
         \checklist{\groundAfterLanding}
+        \vfill\columnbreak
+        \checklist{\airEmergencyEngineFailure}
+        \par
+        \checklist{\airEmergencyEngineFire}
+        \par
+        \checklist{\airEmergencyCabinFire}
     \end{multicols}
 \end{document}
